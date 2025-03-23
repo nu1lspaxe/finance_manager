@@ -1,0 +1,11 @@
+{
+    "@@locale": "zh",
+    "sourceTypeBankAccount": "銀行帳戶",
+    "@sourceTypeBankAccount": {
+        "description": "來源為銀行帳戶的記錄"
+    },
+    "sourceTypeCash": "現金",
+    "@sourceTypeCash": {
+        "description": "來源為現金的記錄"
+    }
+}

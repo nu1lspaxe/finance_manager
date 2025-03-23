@@ -1,0 +1,11 @@
+{
+    "@@locale": "en",
+    "sourceTypeBankAccount": "Bank Account",
+    "@sourceTypeBankAccount": {
+        "description": "record source type for bank account"
+    },
+    "sourceTypeCash": "Cash",
+    "@sourceTypeCash": {
+        "description": "record source type for cash"
+    }
+}
