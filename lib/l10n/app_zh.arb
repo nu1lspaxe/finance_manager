@@ -1,5 +1,7 @@
 {
     "@@locale": "zh",
+    "sourceTypeLabel": "來源類型",
+    "@sourceTypeLabel": {},
     "sourceTypeBankAccount": "銀行帳戶",
     "@sourceTypeBankAccount": {
         "description": "來源為銀行帳戶的記錄"
@@ -7,5 +9,33 @@
     "sourceTypeCash": "現金",
     "@sourceTypeCash": {
         "description": "來源為現金的記錄"
-    }
+    },
+    "recordTypeLable": "記錄類型",
+    "@recordTypeLable": {},
+    "recordTypeExpense": "支出",
+    "@recordTypeExpense": {
+        "description": "支出記錄"
+    },
+    "recordTypeIncome": "收入",
+    "@recordTypeIncome": {
+        "description": "收入記錄"
+    },
+    "recordScreenTitle": "新增記錄",
+    "@recordScreenTitle": {},
+    "amountLabel": "金額",
+    "@amountLabel": {},
+    "submitLabel": "提交",
+    "@submitLabel": {},
+    "errInvalidEmail": "請輸入有效的電子郵件地址",
+    "@errInvalidEmail": {},
+    "errInvalidPassword": "密碼必須至少 8 個字符",
+    "@errInvalidPassword": {},
+    "errEmptyField": "此欄位不能為空",
+    "@errEmptyField": {},
+    "errInvalidNumber": "請輸入有效的數字",
+    "@errInvalidNumber": {},
+    "errNotPositive": "輸入必須為正數",
+    "@errNotPositive": {},
+    "errNoSelected": "請選擇一個選項",
+    "@errNoSelected": {}
 }
