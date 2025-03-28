@@ -1,5 +1,6 @@
 import 'package:finance_manager/ui/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignUpWidget extends StatefulWidget {
   final Function(String, String) onSignUp;
@@ -24,15 +25,16 @@ class _SignUpWidgetState extends State<SignUpWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Sign Up',
+            AppLocalizations.of(context)!.sign_up,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(height: Styles.spacingXLarge),
           TextField(
             controller: _emailController,
-            decoration: const InputDecoration(
-              labelText: 'Email',
-              border: OutlineInputBorder(),
+            obscureText: _obscurePassword,
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.email,
+              border: const OutlineInputBorder(),
             ),
             keyboardType: TextInputType.emailAddress,
           ),
@@ -40,7 +42,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
           TextField(
             controller: _passwordController,
             decoration: InputDecoration(
-              labelText: 'Password',
+              labelText: AppLocalizations.of(context)!.password,
               border: const OutlineInputBorder(),
               suffixIcon: IconButton(
                 icon: Icon(
@@ -57,9 +59,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
           TextField(
             controller: _confirmPasswordController,
             obscureText: _obscurePassword,
-            decoration: const InputDecoration(
-              labelText: 'Confirm Password',
-              border: OutlineInputBorder(),
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.confirm_password,
+              border: const OutlineInputBorder(),
             ),
           ),
           const SizedBox(height: Styles.spacingLarge),
@@ -73,7 +75,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(double.infinity, Styles.buttonHeight),
             ),
-            child: const Text('Sign Up'),
+            child: Text(AppLocalizations.of(context)!.sign_up),
           ),
         ],
       ),

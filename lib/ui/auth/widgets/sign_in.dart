@@ -1,5 +1,6 @@
 import 'package:finance_manager/ui/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignInWidget extends StatefulWidget {
   final Function(String, String) onSignIn;
@@ -23,23 +24,24 @@ class _SignInWidgetState extends State<SignInWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Sign In',
+            AppLocalizations.of(context)!.sign_in,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(height: Styles.spacingXLarge),
           TextField(
             controller: _emailController,
-            decoration: const InputDecoration(
-              labelText: 'Email',
-              border: OutlineInputBorder(),
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.email,
+              border: const OutlineInputBorder(),
             ),
             keyboardType: TextInputType.emailAddress,
           ),
           const SizedBox(height: Styles.spacingMedium),
           TextField(
             controller: _passwordController,
+            obscureText: _obscurePassword,
             decoration: InputDecoration(
-              labelText: 'Password',
+              labelText: AppLocalizations.of(context)!.password,
               border: const OutlineInputBorder(),
               suffixIcon: IconButton(
                 icon: Icon(
@@ -63,7 +65,7 @@ class _SignInWidgetState extends State<SignInWidget> {
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(double.infinity, Styles.buttonHeight),
             ),
-            child: const Text('Sign In'),
+            child: Text(AppLocalizations.of(context)!.sign_in),
           )
         ], 
       )

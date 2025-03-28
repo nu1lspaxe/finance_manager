@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import 'package:finance_manager/ui/auth/widgets/sign_in.dart';
 import 'package:finance_manager/ui/auth/widgets/sign_up.dart';
 import 'package:finance_manager/utils/utils.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -30,7 +32,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Auth Screen'),
+        title: Text(AppLocalizations.of(context)!.auth_screen),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -46,8 +48,8 @@ class _AuthScreenState extends State<AuthScreen> {
               },
               child: Text(
                 _isSignIn
-                  ? 'Don\'t have an account? Sign Up'
-                  : 'Already have an account? Sign In',
+                  ? AppLocalizations.of(context)!.sign_up_text
+                  : AppLocalizations.of(context)!.sign_in_text,
               ),
             )
           ],
