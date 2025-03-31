@@ -1,7 +1,9 @@
 {
     "@@locale": "zh",
-    "auth_screen": "用戶登入或註冊",
-    "@auth_screen": {},
+    "auth_sign_in": "歡迎回來！",
+    "@auth_sign_in": {},
+    "auth_sign_up": "創建帳戶",
+    "@auth_sign_up": {},
     "sign_in": "登入",
     "@sign_in": {},
     "sign_up": "註冊",

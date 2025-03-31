@@ -1,7 +1,9 @@
 {
     "@@locale": "en",
-    "auth_screen": "User Sign In or Sign Up",   
-    "@auth_screen": {},
+    "auth_sign_in": "Welcome Back!",
+    "@auth_sign_in": {},
+    "auth_sign_up": "Create an Account",
+    "@auth_sign_up": {},   
     "sign_in": "Sign In",
     "@sign_in": {},
     "sign_up": "Sign Up",

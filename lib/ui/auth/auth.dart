@@ -19,13 +19,19 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   bool _isSignIn = true;
 
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AuthBloc(AuthService()),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.auth_screen),
+          title: Text(
+            _isSignIn
+                ? AppLocalizations.of(context)!.auth_sign_in
+                : AppLocalizations.of(context)!.auth_sign_up,
+          ),
+          centerTitle: true,
         ),
         body: BlocListener<AuthBloc, AuthState>(
             listener: (context, state) async {

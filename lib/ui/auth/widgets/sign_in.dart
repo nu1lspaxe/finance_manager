@@ -4,14 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class SignInWidget extends StatelessWidget {
+class SignInWidget extends StatefulWidget {
   const SignInWidget({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
+  State<SignInWidget> createState() => _SignInWidgetState();
+}
 
+class _SignInWidgetState extends State<SignInWidget> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  bool obscurePassword = true; 
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: Styles.paddingMedium,
       child: Column(
@@ -26,8 +32,18 @@ class SignInWidget extends StatelessWidget {
             controller: passwordController,
             decoration: InputDecoration(
               labelText: AppLocalizations.of(context)!.password,
+              suffixIcon: IconButton(
+                icon: Icon(
+                  obscurePassword ? Icons.visibility_off : Icons.visibility,
+                ),
+                onPressed: () {
+                  setState(() {
+                    obscurePassword = !obscurePassword;
+                  });
+                },
+              ),
             ),
-            obscureText: true,
+            obscureText: obscurePassword, 
           ),
           const SizedBox(height: Styles.spacingMedium),
           BlocBuilder<AuthBloc, AuthState>(
