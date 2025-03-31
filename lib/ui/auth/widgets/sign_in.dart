@@ -1,74 +1,55 @@
+import 'package:finance_manager/ui/auth/bloc/auth_bloc.dart';
 import 'package:finance_manager/ui/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class SignInWidget extends StatefulWidget {
-  final Function(String, String) onSignIn;
-
-  const SignInWidget({super.key, required this.onSignIn});
-
-  @override
-  State<SignInWidget> createState() => _SignInWidgetState();
-}
-
-class _SignInWidgetState extends State<SignInWidget> {
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  bool _obscurePassword = true;
+class SignInWidget extends StatelessWidget {
+  const SignInWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
+
     return Padding(
       padding: Styles.paddingMedium,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            AppLocalizations.of(context)!.sign_in,
-            style: Theme.of(context).textTheme.headlineMedium,
-          ),
-          const SizedBox(height: Styles.spacingXLarge),
           TextField(
-            controller: _emailController,
+            controller: emailController,
             decoration: InputDecoration(
               labelText: AppLocalizations.of(context)!.email,
-              border: const OutlineInputBorder(),
             ),
-            keyboardType: TextInputType.emailAddress,
           ),
-          const SizedBox(height: Styles.spacingMedium),
           TextField(
-            controller: _passwordController,
-            obscureText: _obscurePassword,
+            controller: passwordController,
             decoration: InputDecoration(
               labelText: AppLocalizations.of(context)!.password,
-              border: const OutlineInputBorder(),
-              suffixIcon: IconButton(
-                icon: Icon(
-                  _obscurePassword ? Icons.visibility : Icons.visibility_off),
-                onPressed: () {
-                  setState(() {
-                    _obscurePassword = !_obscurePassword;
-                  });
-                },
-              ),
             ),
+            obscureText: true,
           ),
-          const SizedBox(height: Styles.spacingLarge),
-          ElevatedButton(
-            onPressed: () {
-              widget.onSignIn(
-                _emailController.text,
-                _passwordController.text,
+          const SizedBox(height: Styles.spacingMedium),
+          BlocBuilder<AuthBloc, AuthState>(
+            builder: (context, state) {
+              if (state is AuthLoading) {
+                return const CircularProgressIndicator();
+              }
+              return ElevatedButton(
+                onPressed: () {
+                  context.read<AuthBloc>().add(
+                    SignInEvent(
+                      emailController.text,
+                      passwordController.text,
+                    ),
+                  );
+                },
+                child: Text(AppLocalizations.of(context)!.sign_in),
               );
             },
-            style: ElevatedButton.styleFrom(
-              minimumSize: const Size(double.infinity, Styles.buttonHeight),
-            ),
-            child: Text(AppLocalizations.of(context)!.sign_in),
-          )
-        ], 
-      )
+          ),
+        ],
+      ),
     );
   }
 }
