@@ -1,16 +1,9 @@
 # finance_manager
 
-A new Flutter project.
+A mobile app to use [microservice backend](https://github.com/nu1lspaxe/finance-manager-v2)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+> We use **mkcert** here to generate self-signed certificate.
+> Follow the [tutorial](https://github.com/FiloSottile/mkcert) to create your own certs.
+- Set up certificates (`ca.pem`, `cert.pem`, `key.pem`) and then place in `certs` folder
